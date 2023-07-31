@@ -42,4 +42,4 @@ set shiftwidth=2
 set expandtab
 set smartindent
 
-let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-rust-analyzer', 'coc-tsserver', 'coc-deno', 'coc-html']
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-rust-analyzer', 'coc-tsserver', 'coc-deno', 'coc-html', 'coc-css']
