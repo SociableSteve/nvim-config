@@ -7,6 +7,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'akinsho/bufferline.nvim'
 
 Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
 Plug 'kdheepak/lazygit.nvim'
@@ -23,6 +24,30 @@ vim.opt.termguicolors = true
 vim.g.mapleader = ';'
 require("nvim-tree").setup()
 require("toggleterm").setup()
+require("bufferline").setup({
+  options = {
+    separator_style = 'slant',
+    diagnostics = 'coc',
+    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      local icon = level:match("error") and " " or " "
+      return " " .. icon .. count
+    end,
+    offsets = {
+      {
+          filetype = "NvimTree",
+          text = "File Explorer",
+          highlight = "Directory",
+          separator = false
+      }
+    }
+  }
+})
+
+local catppuccin = require("catppuccin")
+catppuccin.setup({
+  bufferline = false
+})
+catppuccin.load()
 EOF
 
 syntax enable
@@ -34,6 +59,8 @@ noremap <silent> <C-f> :NvimTreeToggle<CR>
 noremap <silent> <C-t> :ToggleTerm<CR>
 tnoremap <silent> <C-t> <C-\><C-n>:ToggleTerm<CR>
 tnoremap <silent> <esc><esc> <C-\><C-n>:q<CR>
+noremap <silent> <C-l> :bnext<CR>
+noremap <silent> <C-h> :bprev<CR>
 
 nnoremap <silent> <leader>gg :LazyGit<CR>
 
