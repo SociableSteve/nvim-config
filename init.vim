@@ -21,7 +21,7 @@ lua << EOF
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
-vim.g.mapleader = ';'
+vim.g.mapleader = ' '
 require("nvim-tree").setup()
 require("toggleterm").setup()
 require("bufferline").setup({
@@ -54,9 +54,10 @@ syntax enable
 colorscheme catppuccin
 
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-noremap <silent> <C-a> :CocDiagnostics<CR><C-w>p
-noremap <silent> <C-f> :NvimTreeToggle<CR>
-noremap <silent> <C-t> :ToggleTerm<CR>
+noremap <leader>ca <Plug>(coc-codeaction-cursor) 
+noremap <silent> <leader>cd :CocDiagnostics<CR><C-w>p
+noremap <silent> <leader>ff :NvimTreeToggle<CR>
+noremap <silent> <leader>ct :ToggleTerm<CR>
 tnoremap <silent> <C-t> <C-\><C-n>:ToggleTerm<CR>
 tnoremap <silent> <esc><esc> <C-\><C-n>:q<CR>
 noremap <silent> <C-l> :bnext<CR>
